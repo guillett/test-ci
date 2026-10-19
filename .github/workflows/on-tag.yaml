@@ -1,0 +1,21 @@
+---
+name: On tag
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  test-on-windows:
+    steps:
+      - uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v9.0.0
+
+      - name: Add tag on GitHub
+        run: |
+          uv version --short

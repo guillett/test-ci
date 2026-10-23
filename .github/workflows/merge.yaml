@@ -4,6 +4,8 @@ name: Test CI
 on:
   push:
     branches: [main]
+  pull_request:
+    types: [assigned, opened, reopened, synchronize, ready_for_review]
 
 jobs:
   push-tag:
@@ -20,7 +22,7 @@ jobs:
 
       - name: Fail message
         run: |
-          echo "::error file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
+          echo "::error ::Missing semicolon"
           exit 1
 
 

@@ -22,7 +22,7 @@ jobs:
 
       - name: Fail message
         run: |
-          echo "::error file=app.js,line=1,col=5,endColumn=7,title=YOUR-TITLE::Missing semicolon"
+          echo "::error title=YOURTITLE::Missing semicolon"
           exit 1
 
 
